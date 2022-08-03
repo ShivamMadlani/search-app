@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Search.css'
+import SearchIcon from '@mui/icons-material/Search';
 
 const Search = () => {
     const [searchVal, setSearchVal] = useState("");
@@ -23,7 +24,9 @@ const Search = () => {
                 value={searchVal}
                 onChange={handleChange}
                 type="text" />
-            <button onClick={handleSearch}>Submit</button>
+            <button onClick={handleSearch} className="btn">
+                <SearchIcon fontSize='large' />
+            </button>
         </form>
     );
 }

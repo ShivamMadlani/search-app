@@ -1,22 +1,41 @@
 #input {
     background-color: white;
     position: relative;
-    height: 5vh;
-    width: 40vw;
+    height: 45px;
     padding-inline-start: 20px;
-    font-size: 1.3rem;
-    border-radius: 22px;
-    box-shadow: 1px 1px 3px 3px rgba(0,0,0,0.1);
-    border: none;
+    font-size: 1.6rem;
     outline: none;
+    border: none;
+    border-radius: 22px;
 }
 
-#input:hover{
-    box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.2);
+.search:hover {
+    box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.2);
     transition: 150ms;
 }
 
 .search {
+    display: flex;
     position: relative;
     top: 30vh;
+    margin: auto;
+    justify-content: space-between;
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    width: 40vw;
+}
+
+.btn {
+    margin-right: 0.6rem;
+    border-radius: 22px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.02);
 }
