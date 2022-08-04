@@ -2,11 +2,12 @@ import { useState } from 'react'
 import './Search.css'
 import SearchIcon from '@mui/icons-material/Search';
 
-const Search = () => {
+const Search = (props) => {
     const [searchVal, setSearchVal] = useState("");
 
     const handleSearch = (e) => {
         e.preventDefault();
+        props.search(searchVal);
         setSearchVal("");
     }
 
