@@ -28,6 +28,28 @@
     width: 40vw;
 }
 
+.dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 40vw;
+    margin: auto;
+    top: 31vh;
+    box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 22px;
+}
+
+.dropdown-row {
+    text-align: start;
+    padding-left: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .btn {
     margin-right: 0.6rem;
     border-radius: 22px;

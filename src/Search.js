@@ -15,20 +15,35 @@ const Search = (props) => {
         setSearchVal(e.target.value);
     }
 
+    const data = [
+        { "name": "shivam" },
+        { "name": "mann" },
+        { "name": "aditya" }
+    ]
+
     return (
-        <form className="search">
-            <input
-                id='input'
-                autoComplete='off'
-                spellCheck='false'
-                placeholder='Search'
-                value={searchVal}
-                onChange={handleChange}
-                type="text" />
-            <button onClick={handleSearch} className="btn">
-                <SearchIcon fontSize='large' />
-            </button>
-        </form>
+        <div className="container">
+            <form className="search">
+                <input
+                    id='input'
+                    autoComplete='off'
+                    spellCheck='false'
+                    placeholder='Search'
+                    value={searchVal}
+                    onChange={handleChange}
+                    type="text" />
+                <button onClick={handleSearch} className="btn">
+                    <SearchIcon fontSize='large' />
+                </button>
+            </form>
+            <div className="dropdown">
+                {data.map((item) => (
+                    <div className="dropdown-row">
+                        {item.name}
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 }
 
