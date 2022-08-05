@@ -1,25 +1,20 @@
 import { useState } from 'react'
 import './Search.css'
 import SearchIcon from '@mui/icons-material/Search';
+import Result from './Result';
 
 const Search = (props) => {
     const [searchVal, setSearchVal] = useState("");
 
     const handleSearch = (e) => {
         e.preventDefault();
-        props.search(searchVal);
         setSearchVal("");
     }
 
     const handleChange = (e) => {
         setSearchVal(e.target.value);
+        <Result query={searchVal} />
     }
-
-    const data = [
-        { "name": "shivam" },
-        { "name": "mann" },
-        { "name": "aditya" }
-    ]
 
     return (
         <div className="container">
@@ -31,18 +26,15 @@ const Search = (props) => {
                     placeholder='Search'
                     value={searchVal}
                     onChange={handleChange}
-                    type="text" />
+                    type="search" />
                 <button onClick={handleSearch} className="btn">
                     <SearchIcon fontSize='large' />
                 </button>
             </form>
-            <div className="dropdown">
-                {data.map((item) => (
-                    <div className="dropdown-row">
-                        {item.name}
-                    </div>
-                ))}
-            </div>
+            {searchVal && <div className="dropdown">
+                <Result query={searchVal} />
+            </div>}
+            
         </div>
     );
 }
