@@ -3,7 +3,7 @@ import './Search.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Result from './Result';
 
-const Search = (props) => {
+const Search = () => {
     const [searchVal, setSearchVal] = useState("");
 
     const handleSearch = (e) => {
@@ -13,7 +13,7 @@ const Search = (props) => {
 
     const handleChange = (e) => {
         setSearchVal(e.target.value);
-        <Result query={searchVal} />
+        // <Result query={searchVal} />
     }
 
     return (
@@ -26,7 +26,7 @@ const Search = (props) => {
                     placeholder='Search'
                     value={searchVal}
                     onChange={handleChange}
-                    type="search" />
+                    type="text" />
                 <button onClick={handleSearch} className="btn">
                     <SearchIcon fontSize='large' />
                 </button>
@@ -34,7 +34,6 @@ const Search = (props) => {
             {searchVal && <div className="dropdown">
                 <Result query={searchVal} />
             </div>}
-            
         </div>
     );
 }

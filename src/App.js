@@ -3,13 +3,11 @@ import Header from './Header';
 import Search from './Search';
 
 function App() {
-  const search = () => {
-  }
 
   return (
     <div className="App">
       <Header />
-      <Search search={search} />
+      <Search />
     </div>
   );
 }
