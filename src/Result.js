@@ -33,7 +33,7 @@ const Result = ({ query }) => {
                     {isLoaded && (Object.values(items).map((item, ind) => (
                         <li className="searchResults" key={ind}>
                             <a href={item.result.detailedDescription && item.result.detailedDescription.url} target="_blank" rel="noopener noreferrer">
-                                <div>
+                                <div className="itemName">
                                     {item.result.name}
                                 </div>
                                 <div className="itemDescription">
