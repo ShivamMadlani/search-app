@@ -10,7 +10,9 @@ const Result = ({ query }) => {
         fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=AIzaSyBtnD9Fk9ZUWJjg98O-UgXl8f9zepdMU0I&limit=20&indent=true`)
             .then(response => response.json())
             .then((data) => {
-                console.log(data.itemListElement);
+                if (data.itemListElement === undefined) {
+                    setError(true);
+                }
                 setIsLoaded(true);
                 setItems(data.itemListElement);
             }, (error) => {
@@ -21,7 +23,7 @@ const Result = ({ query }) => {
     }, [query]);
 
     if (error) {
-        return <div className="error">Error!</div>
+        return <div className="error">Error! Try searching for another query</div>
     } else if (!isLoaded) {
         return <div className="loading">Loading...</div>
     } else {
