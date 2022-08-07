@@ -30,7 +30,14 @@ const Result = ({ query }) => {
                 <ul className="searchItems">
                     {isLoaded && (Object.values(items).map((item, ind) => (
                         <li className="searchResults" key={ind}>
-                            <a href={item.result.detailedDescription && item.result.detailedDescription.url} target="_blank" rel="noopener noreferrer">{item.result.name}</a>
+                            <a href={item.result.detailedDescription && item.result.detailedDescription.url} target="_blank" rel="noopener noreferrer">
+                                <div>
+                                    {item.result.name}
+                                </div>
+                                <div className="itemDescription">
+                                    {item.result.detailedDescription && item.result.detailedDescription.articleBody}
+                                </div>
+                            </a>
                             <img className="contentImg" src={item.result.image && item.result.image.contentUrl} alt='' />
                         </li>
                     )
