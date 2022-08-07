@@ -7,7 +7,7 @@ const Result = ({ query }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=AIzaSyBtnD9Fk9ZUWJjg98O-UgXl8f9zepdMU0I&limit=5&indent=true`)
+        fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=AIzaSyBtnD9Fk9ZUWJjg98O-UgXl8f9zepdMU0I&limit=20&indent=true`)
             .then(response => response.json())
             .then((data) => {
                 console.log(data.itemListElement);
@@ -30,7 +30,8 @@ const Result = ({ query }) => {
                 <ul className="searchItems">
                     {isLoaded && (Object.values(items).map((item, ind) => (
                         <li className="searchResults" key={ind}>
-                            <a href={item.result.url} target="_blank" rel="noopener noreferrer">{item.result.name}</a>
+                            <a href={item.result.detailedDescription && item.result.detailedDescription.url} target="_blank" rel="noopener noreferrer">{item.result.name}</a>
+                            <img className="contentImg" src={item.result.image && item.result.image.contentUrl} alt='' />
                         </li>
                     )
                     ))}
