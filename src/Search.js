@@ -13,7 +13,6 @@ const Search = () => {
 
     const handleChange = (e) => {
         setSearchVal(e.target.value);
-        // <Result query={searchVal} />
     }
 
     return (
