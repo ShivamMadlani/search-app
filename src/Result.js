@@ -23,7 +23,7 @@ const Result = ({ query }) => {
   }, [query]);
 
   if (error) {
-    return <div className="error">Error! Try searching for another query</div>
+    return <div className="error">Error! Try entering a valid API key or search for another query</div>
   } else if (!isLoaded) {
     return <div className="loading">Loading...</div>
   } else {
