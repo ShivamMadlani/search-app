@@ -7,7 +7,7 @@ const Result = ({ query }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=<YOUR_API_KEY_HERE>&limit=20&indent=true`)
+    fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=${process.env.REACT_APP_API_KEY}&limit=20&indent=true`)
       .then(response => response.json())
       .then((data) => {
         if (data.itemListElement === undefined) {
