@@ -6,8 +6,18 @@ const Result = ({ query }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
+  function saveHistory(event, name, url) {
+    const data = {
+      name,
+      url
+    }
+    var hist = JSON.parse(localStorage.getItem('srchHist')) || [];
+    hist.push(data);
+    localStorage.setItem('srchHist', JSON.stringify(hist));
+  }
+
   useEffect(() => {
-    fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=${process.env.REACT_APP_API_KEY}&limit=20&indent=true`)
+    fetch(`https://kgsearch.googleapis.com/v1/entities:search?query=${query}&key=${process.env.REACT_APP_API_KEY}&limit=10&indent=true`)
       .then(response => response.json())
       .then((data) => {
         if (data.itemListElement === undefined) {
@@ -32,7 +42,7 @@ const Result = ({ query }) => {
         <ul className="searchItems">
           {isLoaded && (Object.values(items).map((item, ind) => (
             <li className="searchResults" key={ind}>
-              <a href={item.result.detailedDescription && item.result.detailedDescription.url} target="_blank" rel="noopener noreferrer">
+              <a href={item.result.detailedDescription && item.result.detailedDescription.url} onClick={event => saveHistory(event, item.result.name, item.result.detailedDescription.url)} target="_blank" rel="noopener noreferrer">
                 <div className="itemName">
                   {item.result.name}
                 </div>
