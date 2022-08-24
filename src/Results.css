@@ -45,7 +45,11 @@ a {
     font-weight: 600;
 }
 
-.searchResults div{
+.historyItemName {
+    font-weight: 450;
+}
+
+.searchResults div {
     text-align: left;
 }
 
@@ -61,6 +65,6 @@ a {
     height: 50px;
 }
 
-.itemDescription{
+.itemDescription {
     font-size: 0.8rem;
 }
